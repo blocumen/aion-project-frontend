@@ -8,7 +8,7 @@ var config = require('../config.js');
 module.exports = {
 
     signIn: function(req, res) {
-        console.log("hey hello");
+        
         res.render('auth/login', {
             loginError: req.flash('loginerror')
         })

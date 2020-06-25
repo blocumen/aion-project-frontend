@@ -1,15 +1,18 @@
 {
-  "name": "jimbeam",
+ 
   "version": "1.0.0",
   "description": "mysteryshopper",
   "main": "app.js",
   "scripts": {
+  
+    "start": "set NODE_ENV=development && node app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "set NODE_ENV=development && node app.js"
+    "front-end": "http-server -c-1"
   },
   "author": "Bharat",
   "license": "ISC",
   "dependencies": {
+    "http-server": "^0.12.3",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.3",
     "compression": "^1.7.3",
