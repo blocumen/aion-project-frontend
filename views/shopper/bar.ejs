@@ -1,0 +1,418 @@
+<% include ../partials/header-inc.ejs %>
+    <% include ../partials/sidebar-inc.ejs %>
+        <style>
+            .max-h {
+                height: 170px !important;
+            }
+            
+            #close {
+                background: linear-gradient(to right, #bd3128 0, #bd3128 100%);
+                border-radius: 50%;
+                height: 50px;
+                left: 18px;
+                opacity: 1;
+                position: relative;
+                float: right;
+                top: -21px;
+                width: 50px;
+                border: 1px;
+                text-shadow: inherit;
+                color: #fff;
+                z-index: 99;
+            }
+        </style>
+
+        <div class="row">
+            <div class="col-xs-8">
+                <h3 class="page-title">All Bars</h3>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+                    <table class="table table-striped custom-table m-b-0" id="example">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Mobile</th>
+                                <th>Date</th>
+
+                                <th class="text-right">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <div id="dataModel" class="modal custom-modal fade" role="dialog">
+            <div class="modal-dialog">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <div class="modal-content modal-lg">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Add Bar</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="m-b-30">
+                            <form id="formId">
+                                <div class="row">
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">Name </label>
+                                            <input class="form-control" type="text" id="barName" name="barName">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">Mobile </label>
+                                            <input class="form-control" type="text" id="mobile" name="mobile">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">Email</label>
+                                            <input class="form-control floating" type="email" id="email" name="email">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label">Address</label>
+                                            <input class="form-control floating" type="address" id="address" name="address">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <hr style="display: block;
+                           margin-top: 0.5em;
+                           margin-bottom: 0.5em;
+                           margin-left: auto;
+                           margin-right: auto;
+                           border-style: inset;
+                           border-width: 1px;">
+                                <h1 class="text-center">BAR RATING</h1>
+                                <div class="row">
+                                    <div class="row">
+
+                                        <div class="col-md-12">
+                                            <div class="card-box">
+                                                <h3 class="card-title text-center">Availability</h3>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+
+
+                                                        <div class="row">
+                                                            <div class="col-md-9">
+                                                                <div class="form-group form-focus">
+                                                                    <p>Primary collection of Jim Beam portfolio / 50pts (Jim Beam White - 20 Points, Jim Beam Black - 20 Points, Jim Beam Flavour - 10 Points)</p>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group ">
+                                                                    <input type="number" id="param1" name="param1" placeholder="0-5000" class="form-control floating parameter">
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="col-md-12">
+                                                <div class="card-box">
+                                                    <h3 class="card-title text-center">Quality</h3>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+
+
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group form-focus">
+                                                                        <p>Perfect serve: Jim Beam cocktail</p>
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group ">
+
+                                                                        <input type="number" id="param2" name="param2" placeholder="0-50" class="form-control floating parameter">
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="col-md-12">
+                                                <div class="card-box">
+                                                    <h3 class="card-title text-center">Mystery Shopper</h3>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+
+
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group form-focus">
+                                                                        <p>Jim Beam recommendation by bartender</p>
+
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group ">
+
+                                                                        <input type="number" id="param3" name="param3" placeholder="0-100" class="form-control floating parameter">
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+
+
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="card-box">
+                                    <h3 class="card-title text-center">Promotion Execution</h3>
+                                    <div class="row">
+                                        <div class="col-md-12">
+
+
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <div class="form-group form-focus">
+                                                        <p>Is the Jim Beam promotion clearly on display? [100pts] Example: Tent cards, posters etc.</p>
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group ">
+
+                                                        <input type="number" id="param4" name="param4" placeholder="0-100" class="form-control floating parameter">
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+
+                                <div class="card-box">
+                                    <h3 class="card-title text-center">Visibility/ Display</h3>
+                                    <div class="row">
+                                        <div class="col-md-12">
+
+
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <div class="form-group form-focus">
+                                                        <p>Back bar display uniqueness Impact created / concept [100 pts]</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group ">
+
+                                                        <input type="number" id="param5" name="param5" placeholder="0-100" class="form-control floating parameter">
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <div class="form-group form-focus">
+                                                        <p>% of Jim Beam allocation in back bar</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+
+                                                    <div class="form-group form-focus select-focus">
+
+                                                        <select id="param6" name="param6" class="form-control">
+                                                    <option disabled>Select </option>
+                                                    <option value="0">0%-5% [0pts]</option>
+													<option value="10">5%-10% [10pts]</option>
+													<option value="20">10%-20% [20pts]</option>
+													<option value="50">20% and above [50pts]</option>
+
+												</select>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <div class="form-group form-focus">
+                                                        <p>Back Bar: Are the Jim Beam bottles facing the consumers?</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group form-focus select-focus">
+
+                                                        <select id="param7" name="param7" class="form-control">
+                                                    <option disabled >Select </option>
+                                                    <option value="0"> 0-5 facings [0pts]</option>
+													<option value="20"> 5 -10 facings [20pts]</option>
+													<option value="50">
+														15 facings and above [50pts]</option>
+
+
+												</select>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <div class="form-group form-focus">
+                                                        <p>Has the bar taken an initiative to create a unique Jim Beam look and feel at areas of the outlet</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group ">
+
+                                                        <input type="number" name="param8" id="param8" placeholder="0-50" class="form-control floating parameter">
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <div class="form-group form-focus">
+                                                        <p>Usage of Jim Beam POS material across the outlet [50pts] Example: Bar mat, stirrers, coasters etc.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="form-group ">
+
+                                                        <input type="number" id="param9" name="param9" placeholder="0-50" class="form-control floating parameter">
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-box">
+                                    <!-- <h3 class="card-title text-center">Promotion Execution</h3> -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+
+
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group form-focus">
+                                                        <p>Comments</p>
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group ">
+
+                                                        <input type="text" id="comments" name="comments" placeholder="Comments" class="form-control floating parameter">
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <input type="hidden" id="barId" />
+                                </div>
+                                <div>
+                                    <input type="hidden" id="shopperId" value=<%=userid %>/>
+                                </div>
+
+                        </div>
+
+                        <div id="loading">
+                            <img id="loading-image" src="/public/img/load.gif" alt="Loading..." />
+                        </div>
+
+                        <div class="m-t-20 text-center">
+                            <button type="button" class="btn btn-primary" onclick="submitData();" id="add_update">Save</button>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="dataModel1" class="modal custom-modal fade" role="dialog">
+            <div class="modal-dialog">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <div class="modal-content modal-lg">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Add Images</h4>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <!-- <label class="control-label">Product Image <span class="text-danger">*</span></label> -->
+                            <input type="hidden" id="baseImage" multiple="true" />
+                            <input style="height:40px" class="form-control" type="file" id="productImage" name="productImage" onchange="showProductImagePreview(this)">
+                            <span style="color:red">Recommended Size 690 * 690</span>
+                        </div>
+
+                    </div>
+                    <div class="m-t-20 text-center">
+                        <button type="button" class="btn btn-primary" id="add_update2">Save</button>
+                    </div>
+                    <div class="row m-t-50" id="imagesAll">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <input type="hidden" id="barId" />
+        <form id="formIDS">
+            <input type="hidden" id="flag" value="0" />
+        </form>
+
+
+        <% include ../partials/footer-inc.ejs %>
+            <script src="/public/page/minjs/shopper/bar.js"></script>
