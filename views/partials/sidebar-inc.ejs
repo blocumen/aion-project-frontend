@@ -1,0 +1,59 @@
+<div class="sidebar" id="sidebar" style="font-family: LutHe !important;">
+    <div class="sidebar-inner slimscroll">
+        <div id="sidebar-menu" class="sidebar-menu">
+            <% if(session.role == '1') { %>
+                <ul>
+                    <li style="margin-top : 30px">
+
+                        <a href="/admin/shopper"><br />Shoppers</a>
+                        <hr style="border-top: 1px solid #fffafa38;" />
+                    </li>
+
+                    <li>
+
+                        <a href="/admin/bar"><br />Bars</a>
+                        <hr style="border-top: 1px solid #fffafa38;" />
+                    </li>
+                    <li>
+
+                        <a href="/admin/scores"><br />Score Management</a>
+                        <hr style="border-top: 1px solid #fffafa38;" />
+                    </li>
+                    <!-- <li>
+                    <a href="/admin/reports"><br />Reports</a>
+					<hr  style="border-top: 1px solid #fffafa38;"/>
+				</li> -->
+                </ul>
+                <% } %>
+                    <% if(session.role == '2') { %>
+                        <ul>
+                            <li style="margin-top : 30px">
+
+                                <a href="/shopper/bar"><br />Bars</a>
+                                <hr style="border-top: 1px solid #fffafa38;" />
+                            </li>
+                            <li>
+                                <a href="/shopper/scores"><br />Score Management</a>
+                                <hr style="border-top: 1px solid #fffafa38;" />
+                            </li>
+                        </ul>
+                        <% } %>
+                            <% if(session.role == '3') { %>
+                                <ul>
+                                    <li style="margin-top : 30px">
+
+                                        <a href="/bar/barScore"><br />Score</a>
+                                        <hr style="border-top: 1px solid #fffafa38;" />
+                                    </li>
+                                    <!-- <li >
+                        <a href="/shopper/scores"><br />Score Management</a>
+						<hr  style="border-top: 1px solid #fffafa38;"/>
+				</li> -->
+                                </ul>
+                                <% } %>
+        </div>
+    </div>
+</div>
+<div class="page-wrapper">
+    <div class="content container-fluid">
+        <div id="notifications"></div>

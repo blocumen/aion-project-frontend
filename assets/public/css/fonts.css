@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'Knockout 30 A','Knockout 30 B';
+    src: url('../fonts/Knockout HTF30JuniorWelterwt Regular.otf') format("opentype");
+    font-weight: normal;
+    font-style: normal;
+   }
+
+   @font-face {
+    font-family: 'Knockout 47 A','Knockout 47 B';
+    src: url('../fonts/Knockout HTF47Bantamweight Regular.otf') format("opentype");
+    font-weight: normal;
+    font-style: normal;
+   }
+
+   @font-face {
+    font-family: 'Calibre';
+    src: url('../fonts/Calibre-Regular.otf') format("opentype");
+    font-weight: normal;
+    font-style: normal;
+   }
+
+   @font-face {
+    font-family: 'LutHe';
+ 
+    src: url('../fonts/LutHe___.ttf') format("opentype");
+    font-weight: normal;
+    font-style: normal;
+   }
+
+   @font-face {
+    font-family: 'Americana';
+    
+    src: url('../fonts/Americana XBd BT Extra Bold.ttf') format("opentype");
+    font-weight: normal;
+    font-style: normal;
+   }

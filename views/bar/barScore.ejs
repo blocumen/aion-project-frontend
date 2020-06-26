@@ -1,0 +1,55 @@
+<% include ../partials/header-inc.ejs %>
+<% include ../partials/sidebar-inc.ejs %>
+<style>
+	.max-h
+	{height: 170px !important;}
+	#close{
+		background: linear-gradient(to right,#bd3128 0,#bd3128 100%);
+    border-radius: 50%;
+    height: 50px;
+    left: 18px;
+    opacity: 1;
+    position: relative;
+    float: right;
+    top: -21px;
+    width: 50px;
+	border:1px;
+    text-shadow: inherit;
+    color: #fff;
+    z-index: 99;
+	}
+</style>
+
+<div class="row">
+	<div class="col-xs-8">
+		<h3 class="page-title">Scores</h3>
+	</div>
+
+</div>
+
+
+
+<div class="row" >
+	<div class="col-md-12">
+		<div class="table-responsive">
+			<table class="table table-striped custom-table m-b-0" id="example">
+				<thead>
+					<tr>
+                        <th>AVAILABILITY</th>
+						<th>QUALITY</th>
+						<th>MYSTERY SHOPPER</th>
+                        <th>PROMOTION EXECUTION</th>
+                        <th>VISIBILITY/DISPLAY</th>
+                        <th>Total</th>
+                        <th>CreatedOn</th>
+                        <th>UpdatedOn</th>
+                    </tr>
+				</thead>
+				
+			</table>
+		</div>
+	</div>
+</div>
+
+<% include ../partials/footer-inc.ejs %>
+<script src="/public/page/minjs/bar/barScore.js"></script>

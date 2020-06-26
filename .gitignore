@@ -1,1 +1,7 @@
+<<<<<<< HEAD
+node_modules
+.env
+assets/public/img
+=======
 /node_modules   
+>>>>>>> dc9981e332554492c80814d75ba6b3c90b7e735f
