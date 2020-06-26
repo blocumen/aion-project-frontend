@@ -7,6 +7,8 @@ async function signup() {
   let userTypeSelected;
   await aiwa.enable();
   // get public
+  let publicKey = aionWeb3.eth.accounts;
+  console.log(publicKey);
   console.log('aionWeb3 test 123: ');
   for (var i = 0; i < userTypes.length; i++) {
     if (userTypes[i].checked) {
@@ -36,8 +38,8 @@ function postRequest(obj) {
     "data": JSON.stringify({
       "fullName": obj.fullName,
       "password": obj.password,
-      // email: obj.email,
-      // role: obj.role
+      "email": obj.email,
+      "role": obj.role
     }),
     "contentType": "application/json",
     "dataType": "json",
