@@ -7,8 +7,12 @@ async function signup() {
   let userTypeSelected;
   await aiwa.enable();
   // get public
+<<<<<<< HEAD
   let publicKey = aionWeb3.eth.accounts;
   console.log(publicKey);
+=======
+  const publicKey = window.aionweb3.eth.accounts[0][0];
+>>>>>>> dc4199b022ffee392a5c2a5fa6a3c7597cb417a5
   console.log('aionWeb3 test 123: ');
   for (var i = 0; i < userTypes.length; i++) {
     if (userTypes[i].checked) {
@@ -19,7 +23,8 @@ async function signup() {
     fullName: name,
     email,
     password,
-    role: userTypeSelected
+    role: userTypeSelected,
+    publicKey
   });
   console.log('selected user : ', userTypeSelected);
 
@@ -27,7 +32,6 @@ async function signup() {
   // if api success then move to login page
   // window.location.replace("../html/login.html");
 }
-
 
 function postRequest(obj) {
   console.log('obj : ', obj);
@@ -39,7 +43,12 @@ function postRequest(obj) {
       "fullName": obj.fullName,
       "password": obj.password,
       "email": obj.email,
+<<<<<<< HEAD
       "role": obj.role
+=======
+      "role": obj.role,
+      "publicKey": obj.publicKey
+>>>>>>> dc4199b022ffee392a5c2a5fa6a3c7597cb417a5
     }),
     "contentType": "application/json",
     "dataType": "json",
