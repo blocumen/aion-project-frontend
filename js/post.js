@@ -36,15 +36,26 @@ function getPosts() {
 function populatePostOnDom(posts) {
   let postCollection;
   const userId = localStorage.getItem('id');
+  const userType = localStorage.getItem('userType');
   console.log('userId : ',userId);
   for (let post of posts) {
+    let isLiked = false;
+    for(let i =0 ;i< post.ratings.length;i++) {
+      const rating = post.ratings[i];
+      if(rating.ratedBy === userId) {
+        isLiked = true;
+        break;
+      }
+    }
+
     postCollection += '<div class="col-12">';
     postCollection += '<div class="card">';
     postCollection += '<div class="card-body">';
     postCollection += `<h5 class="card-title">${post.postContent}</h5>`;
     postCollection += `<h6 class="card-subtitle mb-2 text-muted">${post.result}</h6>`;
     postCollection += '<hr>';
-    if(userId !== post._id) {
+    // moderator should not have already rated the post.
+    if(userType === 'user' &&  !isLiked) { // todo: revert to moderator
     postCollection += `<button types="button" class="btn btn-primary" onClick="postLike('${post._id}')"> Like </button>`;
   }
     postCollection += '</div> </div> </div>';
@@ -56,7 +67,22 @@ function populatePostOnDom(posts) {
 
 function postLike(postId) {
   console.log('postId : ', postId);
-  alert(postId);
+  const loginToken = localStorage.getItem('loginToken');
+  $.ajax({
+    "type": "POST",
+    "url": "http://localhost:5754/api/v1/giveRating",
+    "data": JSON.stringify({
+      "ratingType": 'positive',
+      "postId": postId
+    }),
+    "headers": { "Authorization": "Bearer " + loginToken },
+    "contentType": "application/json",
+    "dataType": "json",
+    success: function (dataString) {
+      console.log('**response from server : ', dataString);
+    }
+  });
+  getPosts();
 }
 
 function submitPost() {
@@ -80,3 +106,5 @@ function submitPost() {
     }
   });
 }
+
+getPosts();
