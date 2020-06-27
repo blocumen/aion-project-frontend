@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "description": "mysteryshopper",
+  "description": "Aion Frontend",
   "main": "app.js",
   "scripts": {
     "start": "set NODE_ENV=development && node app.js",
