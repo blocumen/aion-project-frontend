@@ -47,13 +47,20 @@ function populatePostOnDom(posts) {
         break;
       }
     }
-
+    if(post.result == 'positiveStatus'){
+      var postFeedback = 'True News'
+    }else if(post.result == 'negativeStatus'){
+      var postFeedback = 'False News'
+    }else if(post.result == 'noStatus'){
+      var postFeedback = 'No Result Declared'
+    }
+   var postResult = 
     postCollection += '<div class="col-12 mt-2">';
     postCollection += '<div class="card">';
     postCollection += '<div class="card-body">';
     postCollection += `<h5 class="card-title">${post.postContent}</h5>`;
-    postCollection += `<h6 class="card-subtitle mb-2 text-muted">${post.result}</h6>`;
-    postCollection += '<hr>';
+    postCollection += `<h6 class="card-subtitle mb-2 text-muted">Result : ${postFeedback}</h6>`;
+    postCollection += '<hr>'; 
     // moderator should not have already rated the post.
     if(userType === 'moderator' &&  !isLiked &&  post.status === 'active') { // todo: revert to moderator
     postCollection += `<button types="button" class="btn btn-primary" onClick="postLike('${post._id}')"> Like </button>`;
