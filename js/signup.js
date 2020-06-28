@@ -45,6 +45,7 @@ function postRequest(obj) {
     "dataType": "json",
     success: function (dataString) {
       console.log('**response from server : ', dataString);
+      window.location.replace('./login');
     }
   });
   console.log('end');

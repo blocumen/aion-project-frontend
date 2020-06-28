@@ -22,6 +22,7 @@ function login() {
       localStorage.setItem('id',dataString.user._id);
       localStorage.setItem('fullName',dataString.user.fullName);
       console.log('logintoken : ',localStorage.getItem('loginToken'));
+      window.location.replace('./post');
     }
   });
 
