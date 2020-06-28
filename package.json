@@ -5,11 +5,12 @@
   "scripts": {
     "start": "set NODE_ENV=development && node app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "front-end": "http-server -c-1"
+    "front-end": "serve -c-1"
   },
   "author": "Bharat",
   "license": "ISC",
   "dependencies": {
-    "http-server": "^0.12.3"
+    "http-server": "^0.12.3",
+    "serve": "^11.3.2"
   }
 }

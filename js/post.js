@@ -55,7 +55,7 @@ function populatePostOnDom(posts) {
     postCollection += `<h6 class="card-subtitle mb-2 text-muted">${post.result}</h6>`;
     postCollection += '<hr>';
     // moderator should not have already rated the post.
-    if(userType === 'user' &&  !isLiked) { // todo: revert to moderator
+    if(userType === 'moderator' &&  !isLiked &&  post.status === 'active') { // todo: revert to moderator
     postCollection += `<button types="button" class="btn btn-primary" onClick="postLike('${post._id}')"> Like </button>`;
     postCollection += `<button types="button" class="btn btn-primary" onClick="postDislike('${post._id}')"> Dislike </button>`;
   }
@@ -101,9 +101,10 @@ function postLike(postId) {
     "dataType": "json",
     success: function (dataString) {
       console.log('**response from server : ', dataString);
+     location.reload();
     }
   });
-  getPosts();
+  
 }
 
 function submitPost() {
