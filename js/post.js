@@ -48,7 +48,7 @@ function populatePostOnDom(posts) {
       }
     }
 
-    postCollection += '<div class="col-12">';
+    postCollection += '<div class="col-12 mt-2">';
     postCollection += '<div class="card">';
     postCollection += '<div class="card-body">';
     postCollection += `<h5 class="card-title">${post.postContent}</h5>`;
@@ -56,7 +56,7 @@ function populatePostOnDom(posts) {
     postCollection += '<hr>';
     // moderator should not have already rated the post.
     if(userType === 'moderator' &&  !isLiked &&  post.status === 'active') { // todo: revert to moderator
-    postCollection += `<button types="button" class="btn btn-primary" onClick="postLike('${post._id}')"> Like </button>`;
+    postCollection += `<button types="button" class="btn btn-primary mr-2" onClick="postLike('${post._id}')"> Like </button>`;
     postCollection += `<button types="button" class="btn btn-primary" onClick="postDislike('${post._id}')"> Dislike </button>`;
   }
     postCollection += '</div> </div> </div>';
