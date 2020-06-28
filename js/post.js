@@ -57,12 +57,33 @@ function populatePostOnDom(posts) {
     // moderator should not have already rated the post.
     if(userType === 'user' &&  !isLiked) { // todo: revert to moderator
     postCollection += `<button types="button" class="btn btn-primary" onClick="postLike('${post._id}')"> Like </button>`;
+    postCollection += `<button types="button" class="btn btn-primary" onClick="postDislike('${post._id}')"> Dislike </button>`;
   }
     postCollection += '</div> </div> </div>';
     // set to localstorage 
 
   }
   document.getElementById('allposts').innerHTML = document.getElementById('allposts').innerHTML + postCollection;
+}
+
+
+function postDislike(){
+  const loginToken = localStorage.getItem('loginToken');
+  $.ajax({
+    "type": "POST",
+    "url": "http://localhost:5754/api/v1/giveRating",
+    "data": JSON.stringify({
+      "ratingType": 'positive',
+      "postId": postId
+    }),
+    "headers": { "Authorization": "Bearer " + loginToken },
+    "contentType": "application/json",
+    "dataType": "json",
+    success: function (dataString) {
+      console.log('**response from server : ', dataString);
+    }
+  });
+  getPosts();
 }
 
 function postLike(postId) {
