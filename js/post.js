@@ -34,7 +34,7 @@ function getPosts() {
 }
 
 function populatePostOnDom(posts) {
-  let postCollection;
+  let postCollection = '';
   const userId = localStorage.getItem('id');
   const userType = localStorage.getItem('userType');
   console.log('userId : ',userId);
