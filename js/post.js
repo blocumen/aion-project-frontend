@@ -114,7 +114,11 @@ function submitPost() {
     "dataType": "json",
     success: function (dataString) {
       console.log('**response from server : ', dataString);
+      
       getPosts();
+      location.reload();
+      
+      
     }
   });
 }
