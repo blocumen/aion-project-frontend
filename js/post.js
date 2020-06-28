@@ -57,7 +57,7 @@ function populatePostOnDom(posts) {
     // moderator should not have already rated the post.
     if(userType === 'moderator' &&  !isLiked &&  post.status === 'active') { // todo: revert to moderator
     postCollection += `<button types="button" class="btn btn-primary" onClick="postLike('${post._id}')"> Like </button>`;
-    postCollection += `<button types="button" class="btn btn-primary" onClick="postDislike('${post._id}')"> Dislike </button>`;
+    postCollection += `<button types="button" class="btn btn-primary ml-2" onClick="postDislike('${post._id}')"> Dislike </button>`;
   }
     postCollection += '</div> </div> </div>';
     // set to localstorage 
