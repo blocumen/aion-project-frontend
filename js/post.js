@@ -63,8 +63,8 @@ function populatePostOnDom(posts) {
     postCollection += '<hr>'; 
     // moderator should not have already rated the post.
     if(userType === 'moderator' &&  !isLiked &&  post.status === 'active') { // todo: revert to moderator
-    postCollection += `<button types="button" class="btn btn-primary" onClick="postLike('${post._id}')"> Like </button>`;
-    postCollection += `<button types="button" class="btn btn-primary ml-2" onClick="postDislike('${post._id}')"> Dislike </button>`;
+    postCollection += `<button types="button" class="btn btn-primary" onClick="postDecision('${post._id}','positive')"> Like </button>`;
+    postCollection += `<button types="button" class="btn btn-primary ml-2" onClick="postDecision('${post._id}','negative')"> Dislike </button>`;
   }
     postCollection += '</div> </div> </div>';
     // set to localstorage 
@@ -74,33 +74,16 @@ function populatePostOnDom(posts) {
 }
 
 
-function postDislike(){
-  const loginToken = localStorage.getItem('loginToken');
-  $.ajax({
-    "type": "POST",
-    "url": "http://localhost:5754/api/v1/giveRating",
-    "data": JSON.stringify({
-      "ratingType": 'positive',
-      "postId": postId
-    }),
-    "headers": { "Authorization": "Bearer " + loginToken },
-    "contentType": "application/json",
-    "dataType": "json",
-    success: function (dataString) {
-      console.log('**response from server : ', dataString);
-    }
-  });
-  getPosts();
-}
 
-function postLike(postId) {
+
+function postDecision(postId,postDecision) {
   console.log('postId : ', postId);
   const loginToken = localStorage.getItem('loginToken');
   $.ajax({
     "type": "POST",
     "url": "http://localhost:5754/api/v1/giveRating",
     "data": JSON.stringify({
-      "ratingType": 'positive',
+      "ratingType": postDecision,
       "postId": postId
     }),
     "headers": { "Authorization": "Bearer " + loginToken },
