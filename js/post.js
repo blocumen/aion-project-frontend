@@ -5,9 +5,37 @@
   then show like/dislike button
 4. If user then show post rating if deadline is completed.
  */
+async function getUserInfo() {
+ 
+  let user;
+  const loginToken = localStorage.getItem('loginToken');
+  $.ajax({
+    "type": "GET",
+    "url": "http://localhost:5754/api/v1/getUser",
+    "headers": { "Authorization": "Bearer " + loginToken },
+    "dataType": "json",
+    success: function (dataString) {
+ 
+      
+   
+  
+   if(dataString.reputationPoints){
+    document.getElementById('reputationPoints').innerHTML = dataString.reputationPoints;
+   }else{
+    document.getElementById('reputationPoints').innerHTML = 0;
+   }
+    
+    },
+    error: function (failureResponse) {
+      console.log('**failure response : ', failureResponse);
+    }
+  });
 
 
-function getPosts() {
+}
+
+
+ function getPosts() {
   // const xhttp = new XMLHttpRequest();
 
   // xhttp.open("GET", "http://localhost:5754/api/v1/getAllPosts", false);
@@ -20,24 +48,26 @@ function getPosts() {
     "headers": { "Authorization": "Bearer " + loginToken },
     "dataType": "json",
     success: function (dataString) {
-      console.log('**get all posts response from server : ', dataString);
+     
       posts = dataString.posts;
       console.log('posts : ', posts);
+      getUserInfo();
       populatePostOnDom(posts);
     },
     error: function (failureResponse) {
       console.log('**failure response : ', failureResponse);
     }
   });
-  console.log('completed get all postss');
+
 
 }
+
 
 function populatePostOnDom(posts) {
   let postCollection = '';
   const userId = localStorage.getItem('id');
   const userType = localStorage.getItem('userType');
-  console.log('userId : ',userId);
+
   for (let post of posts) {
     let isLiked = false;
     for(let i =0 ;i< post.ratings.length;i++) {
@@ -77,7 +107,7 @@ function populatePostOnDom(posts) {
 
 
 function postDecision(postId,postDecision) {
-  console.log('postId : ', postId);
+
   const loginToken = localStorage.getItem('loginToken');
   $.ajax({
     "type": "POST",
@@ -90,7 +120,7 @@ function postDecision(postId,postDecision) {
     "contentType": "application/json",
     "dataType": "json",
     success: function (dataString) {
-      console.log('**response from server : ', dataString);
+     
      location.reload();
     }
   });
@@ -100,9 +130,9 @@ function postDecision(postId,postDecision) {
 function submitPost() {
 
   const loginToken = localStorage.getItem('loginToken');
-  console.log('loginToken : ', loginToken);
+ 
   const post = document.getElementsByName('submitpost')[0].value;
-  console.log('post : ', post);
+ 
   $.ajax({
     "type": "POST",
     "url": "http://localhost:5754/api/v1/createPost",
@@ -113,7 +143,7 @@ function submitPost() {
     "contentType": "application/json",
     "dataType": "json",
     success: function (dataString) {
-      console.log('**response from server : ', dataString);
+    
       
       getPosts();
       location.reload();
