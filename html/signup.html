@@ -31,16 +31,13 @@
       crossorigin="anonymous"
     ></script>
 
-    <script
-      src="../js/signup.js"
-    ></script>
+    <script src="../js/signup.js"></script>
   </head>
   <nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand text-center"  href="#">Call It Out</a>
+    <a class="navbar-brand text-center" href="#">Call It Out</a>
   </nav>
   <body>
     <div class="container-fluid">
-      
       <div class="row">
         <div class="col-sm-3">
           <label>Signup</label>
@@ -75,17 +72,27 @@
           <label>User type</label>
         </div>
         <div class="col-sm-10" id="systemUser">
-          <input type="radio" id="user" name="userType" value="user">
-          <label for="user">User</label><br>
-          <input type="radio" id="moderator" name="userType" value="moderator">
-          <label for="moderator">Moderator</label><br> 
+          <input type="radio" id="user" name="userType" value="user" />
+          <label for="user">User</label><br />
+          <input
+            type="radio"
+            id="moderator"
+            name="userType"
+            value="moderator"
+          />
+          <label for="moderator">Moderator</label><br />
         </div>
       </div>
 
       <div class="row mt-2">
         <div class="col-sm-1"></div>
         <div class="col-sm-10">
-          <input type="button" name="submit" value="Submit" onClick="signup()"/>
+          <input
+            type="button"
+            name="submit"
+            value="Submit"
+            onClick="signup()"
+          />
         </div>
       </div>
     </div>
